@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chitter-chatter</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+  <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+  <script>
+    const ROOM_ID = "<%= roomId %>";
+  </script>
+</head>
+
+<body>
+  <!--Adding the header chitter-chatter to the UI-->
+  <div class="header">
+    <div class="logo">
+      <!--When the width of display is less than 700px-->
+      <div class="header-back">
+        <i class="fas fa-angle-left"></i>
+      </div>
+      <!--Title-->
+      <h3>Chitter-Chatter</h3>
+    </div>
+  </div>
+  <div class="main">
+    <div class="left-section">
+      <!--Adding client's video to the display-->
+      <div class="video-group">
+        <div id="video-grid">
+
+        </div>
+      </div>
+      <!--Bottom control buttons-->
+      <div class="controls">
+        <!--Adding video-toggle and audio-toggle on the left-side-->
+        <div class="controls-left">
+          <div id="stop-video" class="control-button">
+            <i class="fa fa-video-camera" title="Turn camera off"></i>
+          </div>
+          <div id="mute-button" class="control-button">
+            <i class="fa fa-microphone" title="Mute"></i>
+          </div>
+          <!--Show chat button, visible when width<700px-->
+          <div id="showChat" class="control-button">
+            <i class="fa fa-comment" title="Show Chat"></i>
+          </div>
+        </div>
+        <!--Adding Invite and Leave button on right-side-->
+        <div class="controls-right">
+          <div id="invite-button" class="control-button" title="Invite Someone">
+            <i class="fas fa-user-plus"></i>
+          </div>
+          <div id="leave-meeting" class="control-button">
+            <span class="material-icons-outlined">call_end</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Chat Section-->
+    <div class="right-section">
+      <div class="chat-window">
+        <div class="messages">
+
+        </div>
+      </div>
+      <div class="message-container">
+        <!--Text area-->
+        <input id="input-message" type="text" autocomplete="off" placeholder="Type a new message">
+        <!--Send button-->
+        <div id="send" class="control-button">
+          <i class="fas fa-chevron-right" title="Send message"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<!--Including Javascript files-->
+<script src="script.js"></script>
+<script src="invite.js"></script>
+<script src="audiotoggle.js"></script>
+<script src="videotoggle.js"></script>
+<script src="chat-section.js"></script>
+
+</html>
